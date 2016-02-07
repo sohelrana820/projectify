@@ -25,7 +25,7 @@
             <div class="login-form row">
                 <div class="col-sm-12 text-center login-header">
                     <i class="login-logo fa fa-connectdevelop fa-5x"></i>
-                    <h4 class="login-title">Flat Admin V2</h4>
+                    <h4 class="login-title"><?php echo $appsName;?></h4>
                 </div>
                 <div class="col-sm-12">
                     <?php echo $this->Flash->render() ?>

@@ -42,11 +42,11 @@ class AppController extends Controller
 
     public $userInfo;
 
-    public $appsName = 'Cake3 User Management';
+    public $appsName = 'Project Management';
 
-    public $baseUrl = 'http://localhost/cakephp3-user-management';
+    public $baseUrl = 'http://localhost/project';
 
-    public $emailFrom = 'info@cakephp3-user-management.com';
+    public $emailFrom = 'info@project.com';
 
     public $currentTheme = 'FlatAdmin';
 
