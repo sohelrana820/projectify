@@ -1,71 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title><?php echo $this->fetch('title');?> - <?php echo $title; ?></title>
-    <?php echo $this->Html->css(array('bootstrap.min', 'sb-admin', 'plugins/morris', 'font-awesome/css/font-awesome', 'style.css'));?>
-    <?php echo $this->fetch('cssTop'); ?>
-    <?php echo $this->fetch('jsTop'); ?>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <!-- CSS Libs -->
+    <?php echo $this->Html->css(['bootstrap.min', 'font-awesome.min', 'animate.min', 'bootstrap-switch.min', 'checkbox3.min', 'jquery.dataTables.min', 'dataTables.bootstrap', 'select2.min', ]); ?>
+    <!-- CSS App -->
+    <?php
+    echo $this->Html->css(['style', 'flat-blue', 'custom']);
+    echo $this->fetch('cssTop');
+    echo $this->fetch('jsTop');
+    ?>
 </head>
 
-<body>
+<body class="flat-blue">
 
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <?php echo $this->Html->link($appsName, ['controller' => 'dashboard', 'action' => 'index'], ['class' => 'navbar-brand']);?>
-        </div>
-        <!-- Top Menu Items -->
+<div class="app-container">
+    <div class="row content-container">
         <?php echo $this->element('header');?>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <?php echo $this->element('sidebar');?>
-        <!-- /.navbar-collapse -->
-    </nav>
-
-    <div id="page-wrapper">
-
+        <!-- Main Content -->
         <div class="container-fluid">
-            <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <ol class="breadcrumb">
-                        <li class="active">
-                            <i class="fa fa-dashboard"></i> Dashboard
-                        </li>
-                    </ol>
-                </div>
+            <div class="side-body padding-top">
+                <?php echo $this->fetch('content'); ?>
             </div>
-            <!-- /.row -->
-            <?php echo $this->fetch('content'); ?>
         </div>
-        <!-- /.container-fluid -->
     </div>
-    <!-- /#page-wrapper -->
-</div>
-<!-- /#wrapper -->
+    <footer class="app-footer">
+        <div class="wrapper">
+            <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> © 2015 Copyright.
+        </div>
+    </footer>
+    <div>
 
-<?php echo $this->Html->script(array('jquery', 'bootstrap.min', 'plugins/morris/raphael.min', 'plugins/morris/morris.min', 'plugins/morris/morris-data'));?>
-<?php echo $this->fetch('jsBottom'); ?>
+<?php
+echo $this->Html->script(['jquery.min', 'bootstrap.min', 'Chart.min', 'bootstrap-switch.min', 'jquery.matchHeight-min', 'jquery.dataTables.min', 'dataTables.bootstrap.min', 'select2.full.min', 'ace/ace', 'ace/mode-html', 'ace/theme-github', 'app']);
+echo $this->fetch('jsBottom');
+?>
+
 </body>
 </html>
