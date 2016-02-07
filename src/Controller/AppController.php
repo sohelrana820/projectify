@@ -48,7 +48,7 @@ class AppController extends Controller
 
     public $emailFrom = 'info@cakephp3-user-management.com';
 
-    public $currentTheme = 'Modern';
+    public $currentTheme = 'FlatAdmin';
 
     public function initialize()
     {
