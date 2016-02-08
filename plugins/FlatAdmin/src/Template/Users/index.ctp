@@ -76,7 +76,7 @@
                                     <?php
                                     echo $this->Html->link('<i class="fa fa-gear t-icon"></i>', ['controller' => 'users', 'action' => 'view', $user->uuid], ['escape' => false, 'class' => 'green']);
 
-                                    echo $this->Html->link('<i class="fa fa-pencil t-icon"></i>', ['controller' => 'users', 'action' => 'view', $user->uuid], ['escape' => false, 'class' => 'lblue']);
+                                    echo $this->Html->link('<i class="fa fa-pencil t-icon"></i>', ['controller' => 'users', 'action' => 'edit', $user->uuid], ['escape' => false, 'class' => 'lblue']);
 
                                     echo $this->Html->link('<i class="fa fa-times t-icon"></i>',
                                         [

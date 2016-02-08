@@ -230,6 +230,8 @@ class UsersController extends AppController{
             $data = $this->request->data;
             $data['uuid'] = Text::uuid();
             $data['profile']['created_by'] = $this->userID;
+            $verifyCode = Text::uuid();
+            $data['email_verifying_code'] = $verifyCode;
 
             if(isset($data['profile']['birthday']) && $data['profile']['birthday'])
             {
@@ -244,6 +246,7 @@ class UsersController extends AppController{
             );
 
             if ($this->Users->save($user)) {
+                $this->Utilities->signupConfirmEmail($data, $verifyCode);
                 $this->Flash->success(__('New user has been created successfully'));
                 return $this->redirect(['controller' => 'users', 'action' => 'index']);
             }

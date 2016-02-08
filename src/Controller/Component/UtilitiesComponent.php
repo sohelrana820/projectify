@@ -41,7 +41,7 @@ class UtilitiesComponent extends Component
     public function signupConfirmEmail($data, $code)
     {
         $app = new AppController();
-        $subject = 'Signup Confirmation - '.$app->appsName;
+        $subject = 'Create Account Confirmation - '.$app->appsName;
         $email = new Email('mandril');
         $link = $app->baseUrl.'/users/verify_email?code='.$code;
 

@@ -1,8 +1,8 @@
 <?php echo $this->assign('title', 'Add New User'); ?>
 
 <div class="page-title">
-    <span class="title">Add New User</span>
-    <div class="description">Provide all information for adding  new user</div>
+    <span class="title">Edit User</span>
+    <div class="description">Provide all information for editing user</div>
 </div>
 
 <div class="row">
