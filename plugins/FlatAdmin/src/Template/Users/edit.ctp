@@ -11,12 +11,27 @@
             <div class="card-header">
                 <div class="card-title">
                     <?php
+                    echo $this->Html->link('New User', ['controller' => 'users', 'action' => 'add'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
+
                     echo $this->Html->link('Users List', ['controller' => 'users', 'action' => 'index'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
+
+                    echo $this->Html->link('Delete User',
+                        [
+                            'controller' => 'users',
+                            'action' => 'delete',
+                            $userInfo->id
+                        ],
+                        [
+                            'escape' => false,
+                            'class' => 'btn btn-danger btn-theme',
+                            'confirm' => __('Are you sure you want to delete this user?', $userInfo->id)
+                        ]
+                    );
                     ?>
                 </div>
             </div>
             <div class="card-body">
-                <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'view/', $userInfo->uuid));?>
+                <?php echo $this->Form->create($userInfo, array('controller' => 'users', 'action' => 'edit/', $userInfo->uuid));?>
                 <form>
 
                     <div class="form-group">
@@ -28,28 +43,26 @@
                         <label>Last name</label>
                         <?php echo $this->Form->input('profile.last_name', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Last name', 'label' => false, 'required' => false]);?>
                     </div>
-
                     <div class="form-group">
                         <label>Gender</label>
                         <br/>
                         <div class="radio3 radio-check radio-success radio-inline">
-                            <input type="radio" id="radio5" name="profile[gender]" id="optionsRadios2" value="1" style="position: absolute; opacity: 0;">
+                            <input type="radio" id="radio5" name="profile[gender]" id="optionsRadios2" <?php if($userInfo->profile->gender == 1){echo 'checked';}?> value="1" style="position: absolute; opacity: 0;">
                             <label for="radio5">
                                 Male
                             </label>
                         </div>
                         <div class="radio3 radio-check radio-success radio-inline">
-                            <input type="radio" id="radio6" name="profile[gender]" id="optionsRadios2" value="2" style="position: absolute; opacity: 0;">
+                            <input type="radio" id="radio6" name="profile[gender]" id="optionsRadios2" <?php if($userInfo->profile->gender == 2){echo 'checked';}?> value="2" style="position: absolute; opacity: 0;">
                             <label for="radio6">
                                 Female
                             </label>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label>Date of Birth</label>
                         <div class="input-group">
-                            <input name="profile[birthday]" type="text" class="form-control datepicker" placeholder="Date of birth">
+                            <input name="profile[birthday]" type="text" class="form-control datepicker" value="<?php echo $this->Time->format($userInfo->profile->birthday, 'dd/MM/Y');?>">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
@@ -82,14 +95,14 @@
                     <div class="form-group">
                         <label>Country</label>
                         <select id="country" name="profile[country]" class="form-control select2-form-control">
-                            <option>Choose country</option>
+                            <option><?php echo $userInfo->profile->country;?></option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>State</label>
                         <select name="profile[state]" id="state" class="form-control select2-form-control">
-                            <option>Choose state</option>
+                            <option><?php echo $userInfo->profile->state;?></option>
                         </select>
                     </div>
 
@@ -103,17 +116,7 @@
                         <?php echo $this->Form->input('profile.postal_code', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Postal Code', 'label' => false, 'required' => false]);?>
                     </div>
 
-                    <div class="form-group">
-                        <label>Password</label>
-                        <?php echo $this->Form->input('password', ['type' => 'password', 'class' => 'form-control', 'placeholder' => 'Password', 'label' => false, 'required' => false]);?>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Confirm password</label>
-                        <?php echo $this->Form->input('cPassword', ['type' => 'password', 'class' => 'form-control', 'placeholder' => 'Confirm password', 'label' => false, 'required' => false]);?>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Save User</button>
+                    <button type="submit" class="btn btn-primary">Edit User</button>
                     <?php echo $this->Form->end();?>
             </div>
         </div>
