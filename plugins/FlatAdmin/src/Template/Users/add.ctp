@@ -81,15 +81,15 @@
 
                     <div class="form-group">
                         <label>Country</label>
-                        <select id="country" name="profile[country]" class="form-control select2-form-control">
-                            <option>Choose country</option>
+                        <select id="country" name="profile[country]" class="form-control select2-form-control" >
+                            <option value="">Choose country</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>State</label>
                         <select name="profile[state]" id="state" class="form-control select2-form-control">
-                            <option>Choose state</option>
+                            <option value="" hidden>Choose state</option>
                         </select>
                     </div>
 
