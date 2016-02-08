@@ -34,3 +34,7 @@ $(function() {
     return $(".side-menu .nav .dropdown .collapse").collapse('hide');
   });
 });
+
+$(document).ready(function () {
+  $('.datepicker').datepicker();
+});

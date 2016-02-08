@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <div class="card-title">
                         <?php
-                        echo $this->Html->link('<i class="fa fa-plus"></i> New User', ['controller' => 'users', 'action' => 'add'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
+                        echo $this->Html->link('New User', ['controller' => 'users', 'action' => 'add'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
                         ?>
                     </div>
 
