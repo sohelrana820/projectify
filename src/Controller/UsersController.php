@@ -205,7 +205,7 @@ class UsersController extends AppController{
 
         $this->paginate = [
             'conditions' => $conditions,
-            'fields' => ['Users.id', 'Users.uuid',  'Users.username', 'Users.status', 'Profiles.first_name', 'Profiles.last_name', 'Profiles.phone', 'Profiles.city'],
+            'fields' => ['Users.id', 'Users.uuid',  'Users.username', 'Users.status', 'Users.role', 'Profiles.first_name', 'Profiles.last_name', 'Profiles.phone', 'Profiles.city'],
             'contain' => [
                 'Profiles' => [
                     'fields'=> []

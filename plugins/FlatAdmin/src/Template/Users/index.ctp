@@ -24,6 +24,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Role</th>
                             <th>Status</th>
                             <th>City</th>
                             <th class="text-right">Action</th>
@@ -46,6 +47,17 @@
                                     }
                                     else{
                                         echo 'N/A';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if($user->role == 1)
+                                    {
+                                        echo '<label>Admin</label>';
+                                    }
+                                    else{
+                                        echo '<label>General</label>';
                                     }
                                     ?>
                                 </td>
@@ -74,22 +86,29 @@
                                 <td class="text-right">
 
                                     <?php
+
                                     echo $this->Html->link('<i class="fa fa-gear t-icon"></i>', ['controller' => 'users', 'action' => 'view', $user->uuid], ['escape' => false, 'class' => 'green']);
 
-                                    echo $this->Html->link('<i class="fa fa-pencil t-icon"></i>', ['controller' => 'users', 'action' => 'edit', $user->uuid], ['escape' => false, 'class' => 'lblue']);
+                                    if($user->role == 2){
+                                        echo $this->Html->link('<i class="fa fa-pencil t-icon"></i>', ['controller' => 'users', 'action' => 'edit', $user->uuid], ['escape' => false, 'class' => 'lblue']);
+                                        echo $this->Html->link('<i class="fa fa-times t-icon"></i>',
+                                            [
+                                                'controller' => 'users',
+                                                'action' => 'delete',
+                                                $user->id
+                                            ],
+                                            [
+                                                'escape' => false,
+                                                'class' => 'red',
+                                                'confirm' => __('Are you sure you want to delete this user?', $user->id)
+                                            ]
+                                        );
+                                    }
+                                    else{
+                                        echo '<span class="lblue"><i class="fa fa-pencil t-icon"></i></span>';
+                                        echo '<span class="red"><i class="fa fa-times t-icon"></i></span>';
+                                    }
 
-                                    echo $this->Html->link('<i class="fa fa-times t-icon"></i>',
-                                        [
-                                            'controller' => 'users',
-                                            'action' => 'delete',
-                                            $user->id
-                                        ],
-                                        [
-                                            'escape' => false,
-                                            'class' => 'red',
-                                            'confirm' => __('Are you sure you want to delete this user?', $user->id)
-                                        ]
-                                    );
                                     ?>
 
                                 </td>
