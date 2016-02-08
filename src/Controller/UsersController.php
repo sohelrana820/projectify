@@ -115,11 +115,16 @@ class UsersController extends AppController{
 
         if ($this->request->is('post')) {
 
+            if(!$this->request->data['username'])
+            {
+                $this->Flash->error(__('Please enter email address'));
+                return $this->redirect(['controller' => 'users', 'action' => 'forgot-password']);
+            }
+
             $user = $this->Users->getUserByEmail($this->request->data['username']);
             if(!$user)
             {
                 $this->Flash->error(__('Sorry! this email is not registered'));
-                return $this->redirect(['controller' => 'users', 'action' => 'login']);
             }
 
             $user = $this->Users->find('all')->where(['id' => $user->id])->first();
@@ -129,7 +134,6 @@ class UsersController extends AppController{
             if($this->Users->save($user)){
                 $this->Utilities->forgotPassEmail($user, $forgotPassCode);
                 $this->Flash->success(__('A reset password link has been sent to your email'));
-                return $this->redirect(['controller' => 'users', 'action' => 'login']);
             }
             else{
                 $this->Flash->error(__('Sorry! something went wrong'));
@@ -151,7 +155,8 @@ class UsersController extends AppController{
         }
 
         $code = $this->request->query['code'];
-        $user = $this->Users->getUserByForgotCode($code);
+        $userDetails = $this->Users->getUserByForgotCode($code);
+        $user = $userDetails;
 
         if(!$user)
         {
@@ -173,7 +178,7 @@ class UsersController extends AppController{
             $user->forgot_pass_code = null;
 
             if ($this->Users->save($user)) {
-                $this->Utilities->passwordChangedEmail($user);
+                $this->Utilities->passwordChangedEmail($userDetails);
                 $this->Flash->success(__('Password has been changed successfully'));
                 return $this->redirect(['controller' => 'users', 'action' => 'login']);
             } else {
