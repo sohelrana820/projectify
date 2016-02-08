@@ -1,3 +1,23 @@
+.select2-container--default .select2-selection--single {
+    height: 36px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #999 !important;;
+    line-height: 35px !important;;
+    font-size: 14px !important;;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ccc !important;;
+    border-radius: 3px !important;;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 5px;
+    right: 2px;
+}
+
 .error-message{
     color: #7c1a06;
 }
