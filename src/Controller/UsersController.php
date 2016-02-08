@@ -78,16 +78,16 @@ class UsersController extends AppController{
         }
 
         $code = $this->request->query['code'];
-        $userInfo = $this->Users->getUserByEmailCode($code);
+        $user = $this->Users->getUserByEmailCode($code);
 
-        if(!$userInfo)
+        if(!$user)
         {
             throw new BadRequestException;
         }
 
-        if($userInfo->email_verify != 1){
+        if($user->email_verify != 1){
             
-            $user = $this->Users->find('all')->where(['id' => $userInfo->id])->first();
+            $user = $this->Users->find('all')->where(['id' => $user->id])->first();
 
             $user->email_verify = 1;
             $user->email_verifying_code = null;
@@ -114,20 +114,20 @@ class UsersController extends AppController{
             ->layout('login');
 
         if ($this->request->is('post')) {
-            
-            $userInfo = $this->Users->getUserByEmail($this->request->data['username']);
-            if(!$userInfo)
+
+            $user = $this->Users->getUserByEmail($this->request->data['username']);
+            if(!$user)
             {
                 $this->Flash->error(__('Sorry! this email is not registered'));
                 return $this->redirect(['controller' => 'users', 'action' => 'login']);
             }
 
-            $user = $this->Users->find('all')->where(['id' => $userInfo->id])->first();
+            $user = $this->Users->find('all')->where(['id' => $user->id])->first();
             $forgotPassCode = Text::uuid();
             $user->forgot_pass_code = $forgotPassCode;
 
             if($this->Users->save($user)){
-                $this->Utilities->forgotPassEmail($userInfo, $forgotPassCode);
+                $this->Utilities->forgotPassEmail($user, $forgotPassCode);
                 $this->Flash->success(__('A reset password link has been sent to your email'));
                 return $this->redirect(['controller' => 'users', 'action' => 'login']);
             }
@@ -151,9 +151,9 @@ class UsersController extends AppController{
         }
 
         $code = $this->request->query['code'];
-        $userInfo = $this->Users->getUserByForgotCode($code);
+        $user = $this->Users->getUserByForgotCode($code);
 
-        if(!$userInfo)
+        if(!$user)
         {
             throw new BadRequestException;
         }
@@ -169,11 +169,11 @@ class UsersController extends AppController{
                 ]
             );
 
-            $user->id = $userInfo->id;
+            $user->id = $user->id;
             $user->forgot_pass_code = null;
 
             if ($this->Users->save($user)) {
-                $this->Utilities->passwordChangedEmail($userInfo);
+                $this->Utilities->passwordChangedEmail($user);
                 $this->Flash->success(__('Password has been changed successfully'));
                 return $this->redirect(['controller' => 'users', 'action' => 'login']);
             } else {
@@ -275,20 +275,20 @@ class UsersController extends AppController{
             $userID = $uuid;
         }
 
-        $userInfo = $this->Users->get($userID, [
+        $user = $this->Users->get($userID, [
             'contain' => ['Profiles']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($userInfo, $this->request->data);
+            $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('User has been updated successfully'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('Sorry, something went wrong'));
             }
         }
-        $this->set(compact('userInfo'));
-        $this->set('_serialize', ['userInfo']);
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
     }
 
     /**
@@ -308,39 +308,6 @@ class UsersController extends AppController{
         else{
             $userID = $uuid;
         }
-        $userInfo = $this->Users->getUserByID($userID);
-        $user = $userInfo;
-
-        if ($this->request->is('put')) {
-            $data = $this->request->data;
-            $data['uuid'] = Text::uuid();
-            $data['profile']['created_by'] = $this->userID;
-
-            if(isset($data['profile']['birthday']) && $data['profile']['birthday'])
-            {
-                $data['profile']['birthday'] = date('Y-m-d H:i:s', strtotime($data['profile']['birthday']));
-            }
-
-            $user = $this->Users->newEntity(
-                $data,
-                [
-                    'associated' => ['Profiles']
-                ]
-            );
-
-            $this->Users->id = $userID;
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('New user has been created successfully'));
-                return $this->redirect(['controller' => 'users', 'action' => 'index']);
-            }
-            else {
-                $this->Flash->error(__('Sorry! something went wrong'));
-            }
-        }
-
-        $this->set(compact('user'));
-        $this->set(compact('userInfo'));
-        $this->set('_serialize', ['user', 'userInfo']);
     }
 
     public function profile()

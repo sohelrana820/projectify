@@ -19,19 +19,19 @@
                         [
                             'controller' => 'users',
                             'action' => 'delete',
-                            $userInfo->id
+                            $user->id
                         ],
                         [
                             'escape' => false,
                             'class' => 'btn btn-danger btn-theme',
-                            'confirm' => __('Are you sure you want to delete this user?', $userInfo->id)
+                            'confirm' => __('Are you sure you want to delete this user?', $user->id)
                         ]
                     );
                     ?>
                 </div>
             </div>
             <div class="card-body">
-                <?php echo $this->Form->create($userInfo, array('controller' => 'users', 'action' => 'edit/', $userInfo->uuid));?>
+                <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'edit/', $user->uuid));?>
                 <form>
 
                     <div class="form-group">
@@ -47,13 +47,13 @@
                         <label>Gender</label>
                         <br/>
                         <div class="radio3 radio-check radio-success radio-inline">
-                            <input type="radio" id="radio5" name="profile[gender]" id="optionsRadios2" <?php if($userInfo->profile->gender == 1){echo 'checked';}?> value="1" style="position: absolute; opacity: 0;">
+                            <input type="radio" id="radio5" name="profile[gender]" id="optionsRadios2" <?php if($user->profile->gender == 1){echo 'checked';}?> value="1" style="position: absolute; opacity: 0;">
                             <label for="radio5">
                                 Male
                             </label>
                         </div>
                         <div class="radio3 radio-check radio-success radio-inline">
-                            <input type="radio" id="radio6" name="profile[gender]" id="optionsRadios2" <?php if($userInfo->profile->gender == 2){echo 'checked';}?> value="2" style="position: absolute; opacity: 0;">
+                            <input type="radio" id="radio6" name="profile[gender]" id="optionsRadios2" <?php if($user->profile->gender == 2){echo 'checked';}?> value="2" style="position: absolute; opacity: 0;">
                             <label for="radio6">
                                 Female
                             </label>
@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label>Date of Birth</label>
                         <div class="input-group">
-                            <input name="profile[birthday]" type="text" class="form-control datepicker" value="<?php echo $this->Time->format($userInfo->profile->birthday, 'dd/MM/Y');?>">
+                            <input name="profile[birthday]" type="text" class="form-control datepicker" value="<?php echo $this->Time->format($user->profile->birthday, 'dd/MM/Y');?>">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
@@ -95,14 +95,14 @@
                     <div class="form-group">
                         <label>Country</label>
                         <select id="country" name="profile[country]" class="form-control select2-form-control">
-                            <option><?php echo $userInfo->profile->country;?></option>
+                            <option><?php echo $user->profile->country;?></option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>State</label>
                         <select name="profile[state]" id="state" class="form-control select2-form-control">
-                            <option><?php echo $userInfo->profile->state;?></option>
+                            <option><?php echo $user->profile->state;?></option>
                         </select>
                     </div>
 

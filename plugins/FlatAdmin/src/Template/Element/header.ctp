@@ -15,7 +15,7 @@
             <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                 <i class="fa fa-times icon"></i>
             </button>
-            <li class="dropdown">
+            <!--<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-comments-o"></i></a>
                 <ul class="dropdown-menu animated fadeInDown">
                     <li class="title">
@@ -57,20 +57,22 @@
                         </ul>
                     </li>
                 </ul>
-            </li>
+            </li>-->
             <li class="dropdown profile">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Emily Hart <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $userInfo->profile->name;?> <span class="caret"></span></a>
                 <ul class="dropdown-menu animated fadeInDown">
                     <li class="profile-img">
                         <?php echo $this->Html->image('profile/picjumbo.com_HNCK4153_resize.jpg', ['class' => 'profile-img'])?>
                     </li>
                     <li>
                         <div class="profile-info">
-                            <h4 class="username">Emily Hart</h4>
-                            <p>emily_hart@email.com</p>
+                            <h4 class="username"><?php echo $userInfo->profile->name;?></h4>
+                            <p><?php echo $userInfo->username;?></p>
                             <div class="btn-group margin-bottom-2x" role="group">
-                                <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Profile</button>
-                                <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button>
+                                <?php
+                                echo $this->Html->link('<i class="fa fa-user"></i> Profile', ['controller' => 'users', 'action' => 'profile'], ['escape' => false, 'class' => 'btn btn-default']);
+                                echo $this->Html->link('<i class="fa fa-sign-out"></i> Logout', ['controller' => 'users', 'action' => 'logout'], ['escape' => false, 'class' => 'btn btn-default']);
+                                ?>
                             </div>
                         </div>
                     </li>
