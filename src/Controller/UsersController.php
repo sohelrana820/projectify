@@ -260,6 +260,60 @@ class UsersController extends AppController{
      * @param $uuid
      * @return \Cake\Network\Response|void
      */
+    public function edit($uuid)
+    {
+        if(empty($uuid))
+        {
+            throw new NotFoundException;
+        }
+
+        if(!is_numeric($uuid)){
+            $userID = $this->Users->getIDbyUUID($uuid);
+        }
+        else{
+            $userID = $uuid;
+        }
+        $userInfo = $this->Users->getUserByID($userID);
+        $user = $userInfo;
+
+        if ($this->request->is('put')) {
+            $data = $this->request->data;
+            $data['uuid'] = Text::uuid();
+            $data['profile']['created_by'] = $this->userID;
+
+            if(isset($data['profile']['birthday']) && $data['profile']['birthday'])
+            {
+                $data['profile']['birthday'] = date('Y-m-d H:i:s', strtotime($data['profile']['birthday']));
+            }
+
+            $users = TableRegistry::get('Users');
+            $user = $users->newEntity(
+                $data,
+                [
+                    'associated' => ['Profiles']
+                ]
+            );
+
+            $users->id = $userID;
+
+            if ($users->save($user)) {
+                $this->Flash->success(__('New user has been created successfully'));
+                return $this->redirect(['controller' => 'users', 'action' => 'index']);
+            }
+            else {
+                $this->Flash->error(__('Sorry! something went wrong'));
+            }
+        }
+
+        $this->set(compact('user'));
+        $this->set(compact('userInfo'));
+        $this->set('_serialize', ['user', 'userInfo']);
+    }
+
+    /**
+     * @param $uuid
+     * @return \Cake\Network\Response|void
+     */
     public function view($uuid)
     {
         if(empty($uuid))
