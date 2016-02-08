@@ -194,7 +194,7 @@ class UsersController extends AppController{
         $this->loadComponent('Utilities');
 
         $conditions = [
-            'Profiles.created_by' => $this->userID
+            'Users.status' => 1
         ];
 
         if(isset($this->request->query) && $this->request->query)
@@ -205,7 +205,7 @@ class UsersController extends AppController{
 
         $this->paginate = [
             'conditions' => $conditions,
-            'fields' => [],
+            'fields' => ['Users.id', 'Users.uuid',  'Users.username', 'Users.status', 'Profiles.first_name', 'Profiles.last_name', 'Profiles.phone', 'Profiles.city'],
             'contain' => [
                 'Profiles' => [
                     'fields'=> []

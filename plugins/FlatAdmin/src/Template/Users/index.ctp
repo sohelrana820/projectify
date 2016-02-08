@@ -21,9 +21,8 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Gender</th>
+                            <th>Status</th>
                             <th>City</th>
-                            <th>Email Verified</th>
                             <th class="text-right">Action</th>
                         </tr>
                         </thead>
@@ -48,14 +47,16 @@
                                     ?>
                                 </td>
                                 <td>
-                                    <?php if($user->profile->gender == 1):?>
-                                        <span>Male (<i class="fa fa-male blue"></i>)</span>
-                                    <?php else:?>
-                                        <span>Female (<i class="fa fa-female rose"></i>)</span>
-                                    <?php endif;?>
+                                    <?php
+                                    if($user->status)
+                                    {
+                                        echo '<label class="green text-uppercase">Active</label>';
+                                    }
+                                    else{
+                                        echo '<label class="red text-uppercase">Inactive</label>';
+                                    }
+                                    ?>
                                 </td>
-
-
                                 <td>
                                     <?php
                                     if($user->profile->city)
@@ -67,23 +68,14 @@
                                     }
                                     ?>
                                 </td>
-                                <td>
-                                    <?php
-                                    if($user->status)
-                                    {
-                                        echo '<label class="label label-success">Active</label>';
-                                    }
-                                    else{
-                                        echo '<label class="label label-warning">Inactive</label>';
-                                    }
-                                    ?>
-                                </td>
                                 <td class="text-right">
+
                                     <?php
-                                    echo $this->Html->link('<i class="fa fa-search"></i>', ['controller' => 'users', 'action' => 'view', $user->uuid], ['escape' => false, 'class' => 't-icon color-green']);
-                                    ?>
-                                    <?php
-                                    echo $this->Html->link('<i class="fa fa-times"></i>',
+                                    echo $this->Html->link('<i class="fa fa-gear t-icon"></i>', ['controller' => 'users', 'action' => 'view', $user->uuid], ['escape' => false, 'class' => 'green']);
+
+                                    echo $this->Html->link('<i class="fa fa-pencil t-icon"></i>', ['controller' => 'users', 'action' => 'view', $user->uuid], ['escape' => false, 'class' => 'lblue']);
+
+                                    echo $this->Html->link('<i class="fa fa-times t-icon"></i>',
                                         [
                                             'controller' => 'users',
                                             'action' => 'delete',
@@ -91,7 +83,7 @@
                                         ],
                                         [
                                             'escape' => false,
-                                            'class' => 't-icon color-red',
+                                            'class' => 'red',
                                             'confirm' => __('Are you sure you want to delete this user?', $user->id)
                                         ]
                                     );
