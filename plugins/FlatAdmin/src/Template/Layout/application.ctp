@@ -27,6 +27,7 @@
         <!-- Main Content -->
         <div class="container-fluid">
             <div class="side-body padding-top">
+                <?php echo $this->Flash->render() ?>
                 <?php echo $this->fetch('content'); ?>
             </div>
         </div>

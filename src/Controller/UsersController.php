@@ -235,8 +235,10 @@ class UsersController extends AppController{
 
             if(isset($data['profile']['birthday']) && $data['profile']['birthday'])
             {
-                $data['profile']['birthday'] = date('Y-m-d H:i:s', strtotime($data['profile']['birthday']));
+                $data['profile']['birthday'] = date('Y-m-d', strtotime($data['profile']['birthday']));
             }
+
+
 
             $user = $this->Users->newEntity(
                 $data,
@@ -244,6 +246,7 @@ class UsersController extends AppController{
                     'associated' => ['Profiles']
                 ]
             );
+
 
             if ($this->Users->save($user)) {
                 $this->Utilities->signupConfirmEmail($data, $verifyCode);
@@ -391,6 +394,17 @@ class UsersController extends AppController{
                 $this->Flash->error(__('Sorry! something went wrong'));
             }
         }
+    }
+
+    public function delete($id = null)
+    {
+        $user = $this->Users->get($id);
+        if ($this->Users->delete($user)) {
+            $this->Flash->success(__('The user has been deleted.'));
+        } else {
+            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+        }
+        return $this->redirect(['action' => 'index']);
     }
 
     /**
