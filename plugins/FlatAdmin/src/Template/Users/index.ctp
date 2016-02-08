@@ -7,14 +7,17 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <?php if(!$users->isEmpty()):?>
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="title">Users</div>
+                        <?php
+                        echo $this->Html->link('<i class="fa fa-plus"></i> New User', ['controller' => 'users', 'action' => 'add'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
+                        ?>
                     </div>
+
                 </div>
                 <div class="card-body">
+                    <?php if(!$users->isEmpty()):?>
                     <table class="table theme-table">
                         <thead>
                         <tr>
@@ -102,11 +105,11 @@
                         </ul>
                         <p><?php echo $this->Paginator->counter() ?></p>
                     </div>
+                    <?php else:?>
+                        <?php echo $this->element('not_found');?>
+                    <?php endif;?>
                 </div>
             </div>
-        <?php else:?>
-            <?php echo $this->element('not_found');?>
-        <?php endif;?>
     </div>
 </div>
 <?php $this->start('jsBottom'); ?>
