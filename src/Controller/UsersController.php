@@ -211,10 +211,8 @@ class UsersController extends AppController{
                     'fields'=> []
                 ]
             ],
-            'limit' => 3,
-            'order' => [
-                'User.id' => 'asc'
-            ]
+            'limit' => $this->paginationLimit,
+            'order' => ['Users.id' => 'desc']
         ];
 
         $users = $this->paginate($this->Users);

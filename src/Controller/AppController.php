@@ -50,6 +50,8 @@ class AppController extends Controller
 
     public $currentTheme = 'FlatAdmin';
 
+    public $paginationLimit = 10;
+
     public function initialize()
     {
         parent::initialize();
