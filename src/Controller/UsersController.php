@@ -42,7 +42,7 @@ class UsersController extends AppController{
 
             $data = $this->request->data;
             $data['uuid'] = Text::uuid();
-            $verifyCode = Text::uuid();
+            $verifyCode = substr(Text::uuid(), 0, 32);
             $data['email_verifying_code'] = $verifyCode;
 
             $user = $this->Users->newEntity(
@@ -127,7 +127,7 @@ class UsersController extends AppController{
             }
 
             $user = $this->Users->find('all')->where(['id' => $userInfo->id])->first();
-            $forgotPassCode = Text::uuid();
+            $forgotPassCode = substr(Text::uuid(), 0, 32);;
             $user->forgot_pass_code = $forgotPassCode;
 
             if($this->Users->save($user)){
@@ -232,7 +232,7 @@ class UsersController extends AppController{
             $data = $this->request->data;
             $data['uuid'] = Text::uuid();
             $data['profile']['created_by'] = $this->userID;
-            $verifyCode = Text::uuid();
+            $verifyCode = substr(Text::uuid(), 0, 32);
             $data['email_verifying_code'] = $verifyCode;
 
             if(isset($data['profile']['birthday']) && $data['profile']['birthday'])
