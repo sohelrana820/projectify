@@ -318,30 +318,20 @@ class UsersController extends AppController{
      */
     public function profile()
     {
-        $this->loadModel('Profiles');
-
+        $user = $this->Users->get($this->userID, [
+            'contain' => ['Profiles']
+        ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-
-            $data = $this->request->data;
-
-            if(isset($data['profile']['birthday']) && $data['profile']['birthday'])
-            {
-                $data['profile']['birthday'] = date('Y-m-d H:i:s', strtotime($data['profile']['birthday']));
-            }
-
-            $profile = $this->Profiles->patchEntity(
-                $this->userInfo->profile,
-                $data['profile']
-            );
-
-            if ($this->Profiles->save($profile)) {
-                $this->Flash->success(__('Your profile has been updated'));
-                return $this->redirect(['controller' => null, 'action' => 'profile']);
-            }
-            else {
-                $this->Flash->error(__('Sorry! something went wrong'));
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('Your profile is updated'));
+                return $this->redirect(['users' > 'users', 'action' => 'profile']);
+            } else {
+                $this->Flash->error(__('Sorry, something went wrong'));
             }
         }
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
     }
 
     /**
