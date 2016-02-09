@@ -15,8 +15,6 @@
 
                     echo $this->Html->link('Update Profile', ['controller' => 'users', 'action' => 'update'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
 
-                    echo $this->Html->link('Change Profile Photo', ['controller' => 'users', 'action' => 'update'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
-
                     echo $this->Html->link('Change Password', ['controller' => 'users', 'action' => 'update'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
                     ?>
                 </div>
