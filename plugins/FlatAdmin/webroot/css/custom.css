@@ -85,7 +85,9 @@
     border-left: 2px solid #CCC;
 }
 
-
+.tab-content{
+    width: 100%;
+}
 /* Text color classes */
 .theme{
     color: #09486b !important;

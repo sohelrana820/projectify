@@ -311,6 +311,10 @@ class UsersController extends AppController{
         else{
             $userID = $uuid;
         }
+
+        $user = $this->Users->get($userID, ['contain' => ['Profiles']]);
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
     }
 
     /**

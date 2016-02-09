@@ -29,122 +29,120 @@
                     </div>
                     <!-- edit form column -->
                     <div class="col-md-9 col-sm-6 col-xs-12 personal-info">
-                        <div class="card-body">
-                            <ul class="data-list data-list-stripe">
-                                <li><strong>Name: </strong> <?php echo $user->profile->name;?></li>
-                                <li><strong>Email: </strong> <?php echo $user->username;?></li>
-                                <li>
-                                    <strong>Phone: </strong>
-                                    <?php
-                                    if($user->profile->phone){
-                                        echo $user->profile->phone;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>Fax: </strong>
-                                    <?php
-                                    if($user->profile->fax){
-                                        echo $user->profile->fax;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>Birthday: </strong>
-                                    <?php
-                                    if($user->profile->birthday){
-                                        echo $this->Time->format($user->profile->birthday, 'dd/MM/Y');
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>Gendar: </strong>
-                                    <?php
-                                    if($user->profile->gender == 1){
-                                        echo 'Male (<i class="fa fa-male green"></i>)';
-                                    }
-                                    else{
-                                        echo 'Female (<i class="fa fa-female rose"></i>)';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>Street 1: </strong>
-                                    <?php
-                                    if($user->profile->street_1){
-                                        echo $user->profile->street_1;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>Street 2: </strong>
-                                    <?php
-                                    if($user->profile->street_2){
-                                        echo $user->profile->street_2;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>City: </strong>
-                                    <?php
-                                    if($user->profile->city){
-                                        echo $user->profile->street_2;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>State: </strong>
-                                    <?php
-                                    if($user->profile->state){
-                                        echo $user->profile->state;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>Postal Code: </strong>
-                                    <?php
-                                    if($user->profile->postal_code){
-                                        echo $user->profile->postal_code;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                                <li>
-                                    <strong>Country: </strong>
-                                    <?php
-                                    if($user->profile->country){
-                                        echo $user->profile->country;
-                                    }
-                                    else{
-                                        echo 'N/A';
-                                    }
-                                    ?>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul class="data-list data-list-stripe">
+                            <li><strong>Name: </strong> <?php echo $user->profile->name;?></li>
+                            <li><strong>Email: </strong> <?php echo $user->username;?></li>
+                            <li>
+                                <strong>Phone: </strong>
+                                <?php
+                                if($user->profile->phone){
+                                    echo $user->profile->phone;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Fax: </strong>
+                                <?php
+                                if($user->profile->fax){
+                                    echo $user->profile->fax;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Birthday: </strong>
+                                <?php
+                                if($user->profile->birthday){
+                                    echo $this->Time->format($user->profile->birthday, 'dd/MM/Y');
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Gendar: </strong>
+                                <?php
+                                if($user->profile->gender == 1){
+                                    echo 'Male (<i class="fa fa-male green"></i>)';
+                                }
+                                else{
+                                    echo 'Female (<i class="fa fa-female rose"></i>)';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Street 1: </strong>
+                                <?php
+                                if($user->profile->street_1){
+                                    echo $user->profile->street_1;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Street 2: </strong>
+                                <?php
+                                if($user->profile->street_2){
+                                    echo $user->profile->street_2;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>City: </strong>
+                                <?php
+                                if($user->profile->city){
+                                    echo $user->profile->street_2;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>State: </strong>
+                                <?php
+                                if($user->profile->state){
+                                    echo $user->profile->state;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Postal Code: </strong>
+                                <?php
+                                if($user->profile->postal_code){
+                                    echo $user->profile->postal_code;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Country: </strong>
+                                <?php
+                                if($user->profile->country){
+                                    echo $user->profile->country;
+                                }
+                                else{
+                                    echo 'N/A';
+                                }
+                                ?>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
