@@ -62,7 +62,13 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $loggedInUser->profile->name;?> <span class="caret"></span></a>
                 <ul class="dropdown-menu animated fadeInDown">
                     <li class="profile-img">
-                        <?php echo $this->Html->image('profile/picjumbo.com_HNCK4153_resize.jpg', ['class' => 'profile-img'])?>
+                        <?php if(isset($user->profile->profile_pic) && $user->profile->profile_pic){
+                            echo $this->Html->image('profiles/'.$user->profile->profile_pic, ['class' => 'profile-img', 'alt' => $user->profile->name, 'url' => ['controller' => 'users', 'action' => 'profile']]);
+                        }
+                        else{
+                            echo $this->Html->image('profiles/dummy.jpg', ['class' => 'profile-img', 'alt' => 'Profile Photo', 'url' => ['controller' => 'users', 'action' => 'profile']]);
+                        }
+                        ?>
                     </li>
                     <li>
                         <div class="profile-info">

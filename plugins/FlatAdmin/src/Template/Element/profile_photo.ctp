@@ -1,5 +1,15 @@
 <div class="text-center">
-    <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
+    <?php if(isset($user->profile->profile_pic) && $user->profile->profile_pic){
+        echo $this->Html->image('profiles/'.$user->profile->profile_pic, ['class' => 'avatar img-circle img-thumbnail', 'alt' => $user->profile->name, 'url' => ['controller' => 'users', 'action' => 'profile']]);
+    }
+    else{
+        echo $this->Html->image('profiles/dummy.jpg', ['class' => 'avatar img-circle img-thumbnail', 'alt' => 'Profile Photo', 'url' => ['controller' => 'users', 'action' => 'profile']]);
+    }
+    ?>
+
     <h6>Upload a different photo...</h6>
-    <input type="file" class="text-center center-block well well-sm">
+    <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'change_photo', 'enctype' => 'multipart/form-data'));?>
+    <input name="photo" type="file" class="text-center center-block well well-sm">
+    <button type="submit" class="btn btn-info">Change Photo</button>
+    <?php echo $this->Form->end();?>
 </div>

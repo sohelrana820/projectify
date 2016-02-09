@@ -28,7 +28,7 @@
                     <!-- edit form column -->
                     <div class="col-md-9 col-sm-6 col-xs-12 personal-info">
                         <div class="card-body">
-                            <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'update', ));?>
+                            <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'update'));?>
                                 <div class="form-group">
                                     <label>First name</label>
                                     <?php echo $this->Form->input('profile.first_name', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'First name', 'label' => false, 'required' => false]);?>

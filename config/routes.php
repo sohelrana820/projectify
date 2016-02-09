@@ -53,6 +53,8 @@ Router::scope('/', function ($routes) {
 
     $routes->connect('/profile/update', ['controller' => 'users', 'action' => 'update']);
 
+    $routes->connect('/profile/change_photo', ['controller' => 'users', 'action' => 'update']);
+
     /**
      * Connect catchall routes for all controllers.
      *

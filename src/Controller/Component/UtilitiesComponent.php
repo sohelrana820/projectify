@@ -126,4 +126,14 @@ class UtilitiesComponent extends Component
             ->set(['data' => $data])
             ->send();
     }
+
+    public function uploadProfilePhoto($path, $documents)
+    {
+        $uploadFile = $path . '/' . $documents['name'];
+        $fileName = $documents['name'];
+        if (move_uploaded_file($documents['tmp_name'], $uploadFile)) {
+            return $fileName;
+        }
+        return false;
+    }
 }

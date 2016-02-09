@@ -5,6 +5,8 @@ use Cake\Network\Exception\BadRequestException;
 use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Exception\NotFoundException;
 use Cake\ORM\TableRegistry;
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
 use Cake\Utility\Text;
 
 class UsersController extends AppController{
@@ -346,6 +348,36 @@ class UsersController extends AppController{
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
+    }
+
+    public function changePhoto()
+    {
+        $directory = strtolower(str_replace(' ', '-', $this->userID));
+        $rootDir = WWW_ROOT . 'img/profiles';
+        $path = $rootDir . '/' . $directory;
+        $folder = new Folder();
+        if (!is_dir($path)) {
+            $folder->create($path);
+        }
+
+        $profileImg['profile']['profile_pic'] = '';
+        if (isset($this->request->data['photo']['name']) && $this->request->data['photo']['name']) {
+            $profileImg['profile']['profile_pic'] = $this->userID . '/' . $this->Utilities->uploadProfilePhoto($path, $this->request->data['photo']);
+        }
+
+        $user = $this->Users->get($this->userID, [
+            'contain' => ['Profiles']
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $profileImg);
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('Your profile photo updated successfully'));
+            } else {
+                $this->Flash->error(__('Sorry, something went wrong'));
+            }
+        }
+
+        return $this->redirect(['users' > 'users', 'action' => 'profile']);
     }
 
     /**
