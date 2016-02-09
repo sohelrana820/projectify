@@ -1,3 +1,5 @@
+<?php echo $this->assign('title', 'My Profile'); ?>
+
 <div class="page-title">
     <span class="title">My Profile</span>
     <div class="description">All information of your profile</div>
@@ -22,103 +24,126 @@
             <div class="card-body">
                 <div class="row">
                     <!-- left column -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="text-center">
-                            <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
-                            <h6>Upload a different photo...</h6>
-                            <input type="file" class="text-center center-block well well-sm">
-                        </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <?php echo $this->element('profile_photo');?>
                     </div>
                     <!-- edit form column -->
-                    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+                    <div class="col-md-9 col-sm-6 col-xs-12 personal-info">
                         <div class="card-body">
-                            <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'profile', ));?>
-                            <form>
-
-                                <div class="form-group">
-                                    <label>First name</label>
-                                    <?php echo $this->Form->input('profile.first_name', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'First name', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Last name</label>
-                                    <?php echo $this->Form->input('profile.last_name', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Last name', 'label' => false, 'required' => false]);?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Gender</label>
-                                    <br/>
-                                    <div class="radio3 radio-check radio-success radio-inline">
-                                        <input type="radio" id="radio5" name="profile[gender]" id="optionsRadios2" <?php if($user->profile->gender == 1){echo 'checked';}?> value="1" style="position: absolute; opacity: 0;">
-                                        <label for="radio5">
-                                            Male
-                                        </label>
-                                    </div>
-                                    <div class="radio3 radio-check radio-success radio-inline">
-                                        <input type="radio" id="radio6" name="profile[gender]" id="optionsRadios2" <?php if($user->profile->gender == 2){echo 'checked';}?> value="2" style="position: absolute; opacity: 0;">
-                                        <label for="radio6">
-                                            Female
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Date of Birth</label>
-                                    <div class="input-group">
-                                        <input name="profile[birthday]" type="text" class="form-control datepicker" value="<?php echo $this->Time->format($user->profile->birthday, 'dd/MM/Y');?>">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <?php echo $this->Form->input('username', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Email address', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Phone number</label>
-                                    <?php echo $this->Form->input('profile.phone', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Phone number', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Fax</label>
-                                    <?php echo $this->Form->input('profile.fax', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Fax', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Street 1</label>
-                                    <?php echo $this->Form->input('profile.street_1', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Street 1', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Street 2</label>
-                                    <?php echo $this->Form->input('profile.street_2', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Street 2', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Country</label>
-                                    <select id="country" name="profile[country]" class="form-control select2-form-control">
-                                        <option><?php echo $user->profile->country;?></option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>State</label>
-                                    <select name="profile[state]" id="state" class="form-control select2-form-control">
-                                        <option><?php echo $user->profile->state;?></option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <?php echo $this->Form->input('profile.city', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'City', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <?php echo $this->Form->input('profile.postal_code', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Postal Code', 'label' => false, 'required' => false]);?>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Update Profile</button>
-                                <?php echo $this->Form->end();?>
+                            <ul class="data-list data-list-stripe">
+                                <li><strong>Name: </strong> <?php echo $user->profile->name;?></li>
+                                <li><strong>Email: </strong> <?php echo $user->username;?></li>
+                                <li>
+                                    <strong>Phone: </strong>
+                                    <?php
+                                    if($user->profile->phone){
+                                        echo $user->profile->phone;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>Fax: </strong>
+                                    <?php
+                                    if($user->profile->fax){
+                                        echo $user->profile->fax;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>Birthday: </strong>
+                                    <?php
+                                    if($user->profile->birthday){
+                                        echo $this->Time->format($user->profile->birthday, 'dd/MM/Y');
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>Gendar: </strong>
+                                    <?php
+                                    if($user->profile->gender == 1){
+                                        echo 'Male (<i class="fa fa-male green"></i>)';
+                                    }
+                                    else{
+                                        echo 'Female (<i class="fa fa-female rose"></i>)';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>Street 1: </strong>
+                                    <?php
+                                    if($user->profile->street_1){
+                                        echo $user->profile->street_1;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>Street 2: </strong>
+                                    <?php
+                                    if($user->profile->street_2){
+                                        echo $user->profile->street_2;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>City: </strong>
+                                    <?php
+                                    if($user->profile->city){
+                                        echo $user->profile->street_2;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>State: </strong>
+                                    <?php
+                                    if($user->profile->state){
+                                        echo $user->profile->state;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>Postal Code: </strong>
+                                    <?php
+                                    if($user->profile->postal_code){
+                                        echo $user->profile->postal_code;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                                <li>
+                                    <strong>Country: </strong>
+                                    <?php
+                                    if($user->profile->country){
+                                        echo $user->profile->country;
+                                    }
+                                    else{
+                                        echo 'N/A';
+                                    }
+                                    ?>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -45,6 +45,47 @@
 }
 
 
+.data-list {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+.data-list li {
+    color: #777;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.data-list strong {
+    font-size: 12px;
+    margin-right: 1px;
+}
+
+.data-list b {
+    font-size: 12px;
+}
+
+.data-list li a {
+    color: #6f8e40;
+}
+
+.data-list li p {
+    margin-top: 10px;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+.data-list-stripe li{
+    padding: 12px 15px;
+    background: #f8f8f8;
+    margin-bottom: 10px;
+    border-left: 2px solid #CCC;
+}
+
+
 /* Text color classes */
 .theme{
     color: #09486b !important;

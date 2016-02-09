@@ -22,19 +22,13 @@
             <div class="card-body">
                 <div class="row">
                     <!-- left column -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="text-center">
-                            <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
-                            <h6>Upload a different photo...</h6>
-                            <input type="file" class="text-center center-block well well-sm">
-                        </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <?php echo $this->element('profile_photo');?>
                     </div>
                     <!-- edit form column -->
-                    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+                    <div class="col-md-9 col-sm-6 col-xs-12 personal-info">
                         <div class="card-body">
                             <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'update', ));?>
-                            <form>
-
                                 <div class="form-group">
                                     <label>First name</label>
                                     <?php echo $this->Form->input('profile.first_name', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'First name', 'label' => false, 'required' => false]);?>
