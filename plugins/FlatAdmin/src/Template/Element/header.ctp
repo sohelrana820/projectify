@@ -59,15 +59,15 @@
                 </ul>
             </li>-->
             <li class="dropdown profile">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $userInfo->profile->name;?> <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $loggedInUser->profile->name;?> <span class="caret"></span></a>
                 <ul class="dropdown-menu animated fadeInDown">
                     <li class="profile-img">
                         <?php echo $this->Html->image('profile/picjumbo.com_HNCK4153_resize.jpg', ['class' => 'profile-img'])?>
                     </li>
                     <li>
                         <div class="profile-info">
-                            <h4 class="username"><?php echo $userInfo->profile->name;?></h4>
-                            <p><?php echo $userInfo->username;?></p>
+                            <h4 class="username"><?php echo $loggedInUser->profile->name;?></h4>
+                            <p><?php echo $loggedInUser->username;?></p>
                             <div class="btn-group margin-bottom-2x" role="group">
                                 <?php
                                 echo $this->Html->link('<i class="fa fa-user"></i> Profile', ['controller' => 'users', 'action' => 'profile'], ['escape' => false, 'class' => 'btn btn-default']);

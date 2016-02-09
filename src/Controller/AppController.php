@@ -40,7 +40,7 @@ class AppController extends Controller
 
     public $userID;
 
-    public $userInfo;
+    public $loggedInUser;
 
     public $appsName = 'Project Management';
 
@@ -76,11 +76,11 @@ class AppController extends Controller
     {
         $this->Auth->allow(['signup', 'verifyEmail', 'forgotPassword', 'resetPassword']);
         $this->userID = $this->Auth->user('id');
-        $this->userInfo = $this->Users->getUserByID($this->userID);
+        $this->loggedInUser = $this->Users->getUserByID($this->userID);
 
         $this->set('title', $this->appsName);
         $this->set('appsName', $this->appsName);
-        $this->set('userInfo', $this->userInfo);
+        $this->set('loggedInUser', $this->loggedInUser);
 
         $this->viewBuilder()
             ->layout('application')

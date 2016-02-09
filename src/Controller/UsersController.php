@@ -13,6 +13,7 @@ class UsersController extends AppController{
 
     /**
      * @return \Cake\Network\Response|void
+     * With this function user will login into the application.
      */
     public function login()
     {
@@ -31,6 +32,7 @@ class UsersController extends AppController{
 
     /**
      * @return \Cake\Network\Response|void
+     * This function is for create account. After create account user will get a email confirmation email.
      */
     public function signup()
     {
@@ -68,6 +70,7 @@ class UsersController extends AppController{
 
     /**
      * @return \Cake\Network\Response|void
+     * This function is for verify the user's email address after creating account.
      */
     public function verifyEmail()
     {
@@ -78,14 +81,12 @@ class UsersController extends AppController{
 
         $code = $this->request->query['code'];
         $userInfo = $this->Users->getUserByEmailCode($code);
-
         if(!$userInfo)
         {
             throw new BadRequestException;
         }
 
         if($userInfo->email_verify != 1){
-
             $user = $this->Users->find('all')->where(['id' => $userInfo->id])->first();
             $user->email_verify = 1;
             $user->email_verifying_code = null;
@@ -142,7 +143,7 @@ class UsersController extends AppController{
     }
 
     /**
-     *
+     * @return \Cake\Network\Response|void
      */
     public function resetPassword()
     {
@@ -312,6 +313,9 @@ class UsersController extends AppController{
         }
     }
 
+    /**
+     * @return \Cake\Network\Response|void
+     */
     public function profile()
     {
         $this->loadModel('Profiles');
@@ -340,6 +344,10 @@ class UsersController extends AppController{
         }
     }
 
+    /**
+     * @param null $id
+     * @return \Cake\Network\Response|void
+     */
     public function delete($id = null)
     {
         $user = $this->Users->get($id);
