@@ -32,7 +32,7 @@
                     <!-- edit form column -->
                     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
                         <div class="card-body">
-                            <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'profile', ));?>
+                            <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'update', ));?>
                             <form>
 
                                 <div class="form-group">

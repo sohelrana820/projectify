@@ -318,6 +318,16 @@ class UsersController extends AppController{
      */
     public function profile()
     {
+        $user = $this->Users->get($this->userID, ['contain' => ['Profiles']]);
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
+    }
+
+    /**
+     * @return \Cake\Network\Response|void
+     */
+    public function update()
+    {
         $user = $this->Users->get($this->userID, [
             'contain' => ['Profiles']
         ]);
