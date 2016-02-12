@@ -100,7 +100,7 @@
                                         [
                                             'escape' => false,
                                             'class' => 'red',
-                                            'confirm' => __('Are you sure you want to delete this user?', $client->id)
+                                            'confirm' => __('Are you sure you want to delete this client?', $client->id)
                                         ]
                                     );
 
