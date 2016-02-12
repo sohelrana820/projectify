@@ -34,7 +34,7 @@
                         <?php foreach($users as $user):?>
                             <tr>
                                 <td>
-                                    <?php echo $this->Html->link($user->profile->name, ['controller' => 'users', 'action' => 'view', $user->id], ['class' => 'theme']); ?>
+                                    <?php echo $this->Html->link($user->profile->name, ['controller' => 'users', 'action' => 'view', $user->uuid], ['class' => 'theme']); ?>
                                 </td>
                                 <td>
                                     <?php echo $user->username; ?>

@@ -86,7 +86,6 @@
                                 <td class="text-right">
 
                                     <?php
-
                                     echo $this->Html->link('<i class="fa fa-gear t-icon"></i>', ['controller' => 'clients', 'action' => 'view', $client->uuid], ['escape' => false, 'class' => 'green']);
 
                                     echo $this->Html->link('<i class="fa fa-pencil t-icon"></i>', ['controller' => 'clients', 'action' => 'edit', $client->uuid], ['escape' => false, 'class' => 'lblue']);

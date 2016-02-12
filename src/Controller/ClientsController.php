@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Exception\NotFoundException;
 use Cake\Utility\Text;
 
 /**
@@ -24,15 +25,24 @@ class ClientsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Client id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     * @param $uuid
+     * @throws NotFoundException
      */
-    public function view($id = null)
+    public function view($uuid)
     {
-        $client = $this->Clients->get($id, [
+        if(empty($uuid))
+        {
+            throw new NotFoundException;
+        }
+
+        if(!is_numeric($uuid)){
+            $clientID = $this->Clients->getIDbyUUID($uuid);
+        }
+        else{
+            $clientID = $uuid;
+        }
+
+        $client = $this->Clients->get($clientID, [
             'contain' => []
         ]);
         $this->set('client', $client);
@@ -99,7 +109,6 @@ class ClientsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
         $client = $this->Clients->get($id);
         if ($this->Clients->delete($client)) {
             $this->Flash->success(__('The client has been deleted.'));

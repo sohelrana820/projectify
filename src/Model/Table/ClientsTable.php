@@ -100,6 +100,23 @@ class ClientsTable extends Table
     }
 
     /**
+     * @param $uuid
+     * @return null
+     */
+    public function getIDbyUUID($uuid)
+    {
+        $result = $this->find()
+            ->where(['Clients.uuid' => $uuid])
+            ->first();
+
+        if($result)
+        {
+            return $result->id;
+        }
+        return null;
+    }
+
+    /**
      * Returns a rules checker object that will be used for validating
      * application integrity.
      *

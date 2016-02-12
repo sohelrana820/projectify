@@ -2,7 +2,7 @@
 
     <div class="page-title">
         <span class="title">User Details</span>
-        <div class="description">All information of your profile</div>
+        <div class="description">All information of <?php echo $user->profile->name?></div>
     </div>
 
     <div class="row">
@@ -69,10 +69,10 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-sm-6 col-xs-12">
                                         <?php if(isset($user->profile->profile_pic) && $user->profile->profile_pic){
-                                            echo $this->Html->image('profiles/'.$user->profile->profile_pic, ['class' => 'avatar img-thumbnail', 'alt' => $user->profile->name, 'url' => ['controller' => 'users', 'action' => 'profile']]);
+                                            echo $this->Html->image('profiles/'.$user->profile->profile_pic, ['class' => 'avatar img-thumbnail', 'alt' => $user->profile->name, 'url' => ['controller' => 'users', 'action' => 'view', $user->uuid]]);
                                         }
                                         else{
-                                            echo $this->Html->image('profiles/dummy.jpg', ['class' => 'avatar img-thumbnail', 'alt' => 'Profile Photo', 'url' => ['controller' => 'users', 'action' => 'profile']]);
+                                            echo $this->Html->image('profiles/dummy.jpg', ['class' => 'avatar img-thumbnail', 'alt' => 'Profile Photo', 'url' => ['controller' => 'users', 'action' => 'view', $user->uuid]]);
                                         }
                                         ?>
                                     </div>
