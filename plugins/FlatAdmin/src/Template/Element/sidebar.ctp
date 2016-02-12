@@ -15,7 +15,10 @@
                     <?php echo $this->Html->link('<span class="icon fa fa-tachometer"></span><span class="title">Dashboard</span>', ['controller' => 'dashboard', 'action' => 'index'], ['escape' => false])?>
                 </li>
                 <li>
-                    <?php echo $this->Html->link('<span class="icon fa fa-users"></span><span class="title">Users</span>', ['controller' => 'users', 'action' => 'index'], ['escape' => false])?>
+                    <?php echo $this->Html->link('<span class="icon fa fa-user"></span><span class="title">Users</span>', ['controller' => 'users', 'action' => 'index'], ['escape' => false])?>
+                </li>
+                <li>
+                    <?php echo $this->Html->link('<span class="icon fa fa-users"></span><span class="title">Clients</span>', ['controller' => 'clients', 'action' => 'index'], ['escape' => false])?>
                 </li>
             </ul>
         </div>
