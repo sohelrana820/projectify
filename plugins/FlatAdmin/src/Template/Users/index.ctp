@@ -25,8 +25,8 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Role</th>
-                            <th>Status</th>
                             <th>City</th>
+                            <th>Status</th>
                             <th class="text-right">Action</th>
                         </tr>
                         </thead>
@@ -61,17 +61,7 @@
                                     }
                                     ?>
                                 </td>
-                                <td>
-                                    <?php
-                                    if($user->status)
-                                    {
-                                        echo '<label class="green text-uppercase">Active</label>';
-                                    }
-                                    else{
-                                        echo '<label class="red text-uppercase">Inactive</label>';
-                                    }
-                                    ?>
-                                </td>
+
                                 <td>
                                     <?php
                                     if($user->profile->city)
@@ -80,6 +70,17 @@
                                     }
                                     else{
                                         echo 'N/A';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if($user->status)
+                                    {
+                                        echo '<label class="green text-uppercase">Active</label>';
+                                    }
+                                    else{
+                                        echo '<label class="red text-uppercase">Inactive</label>';
                                     }
                                     ?>
                                 </td>
