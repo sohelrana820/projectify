@@ -1,7 +1,7 @@
-<?php echo $this->assign('title', 'Add New User'); ?>
+<?php echo $this->assign('title', 'New User'); ?>
 
 <div class="page-title">
-    <span class="title">Add New User</span>
+    <span class="title">New User</span>
     <div class="description">Provide all information for adding  new user</div>
 </div>
 

@@ -15,6 +15,8 @@
 
                     echo $this->Html->link('Users List', ['controller' => 'users', 'action' => 'index'], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
 
+                    echo $this->Html->link('View User', ['controller' => 'users', 'action' => 'view', $user->uuid], ['class' => 'btn btn-primary btn-theme', 'escape' => false]);
+
                     echo $this->Html->link('Delete User',
                         [
                             'controller' => 'users',
