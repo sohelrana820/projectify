@@ -20,6 +20,14 @@ class ClientsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'conditions' => ['Clients.status' => 1],
+            'fields' => ['Clients.id', 'Clients.uuid',  'Clients.email', 'Clients.status', 'Clients.name', 'Clients.phone', 'Clients.city', 'Clients.website'],
+            'recursive' => -1,
+            'limit' => $this->paginationLimit,
+            'order' => ['Clients.id' => 'desc']
+        ];
+
         $this->set('clients', $this->paginate($this->Clients));
         $this->set('_serialize', ['clients']);
     }
