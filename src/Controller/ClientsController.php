@@ -82,15 +82,27 @@ class ClientsController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit($uuid = null)
     {
-        $client = $this->Clients->get($id, [
+        if(empty($uuid))
+        {
+            throw new NotFoundException;
+        }
+
+        if(!is_numeric($uuid)){
+            $clientID = $this->Clients->getIDbyUUID($uuid);
+        }
+        else{
+            $clientID = $uuid;
+        }
+
+        $client = $this->Clients->get($clientID, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $client = $this->Clients->patchEntity($client, $this->request->data);
             if ($this->Clients->save($client)) {
-                $this->Flash->success(__('The client has been saved.'));
+                $this->Flash->success(__('The client has been updated successfully'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The client could not be saved. Please, try again.'));
