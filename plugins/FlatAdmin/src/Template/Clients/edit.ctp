@@ -1,4 +1,4 @@
-<?php echo $this->assign('title', 'New Client'); ?>
+<?php echo $this->assign('title', 'Edit Client'); ?>
 
     <div class="page-title">
         <span class="title">Edit Client</span>
