@@ -45,48 +45,56 @@ class ClientsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->add('uuid', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('uuid', 'create')
-            ->notEmpty('uuid');
-
-        $validator
-            ->add('created_by', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('created_by');
-
-        $validator
             ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->notEmpty('name', 'Client name must be required!');
+
+        $validator->add(
+        'email',
+        [
+            'validEmail' => [
+                'rule' => ['email'],
+                'message' => 'Please provide valid email address!'
+            ],
+            'unique' => [
+                'message' => 'Sorry, this email address is already taken!',
+                'provider' => 'table',
+                'rule' => 'validateUnique'
+            ]
+        ]
+    )
+        ->requirePresence('email', 'create', 'Email address must be required!')
+        ->notEmpty('email', 'Email address must be required!');
 
         $validator
-            ->allowEmpty('website');
+            ->add(
+                'password',
+                [
+                    'minLength' => [
+                        'rule' => ['minLength', 6],
+                        'message' => 'Password must contain at least 6 character'
+                    ],
+                ]
+            )
+            ->requirePresence('password', 'create', 'Password must be required!')
+            ->notEmpty('password', 'Password must be required!');
 
         $validator
-            ->add('email', 'valid', ['rule' => 'email'])
-            ->allowEmpty('email');
+            ->requirePresence('cPassword', 'create', 'Password must be required!')
+            ->notEmpty('cPassword', 'Confirm password must be required!', 'create')
+            ->add(
+                'cPassword',
+                'custom',
+                [
+                    'rule' => function ($value, $context) {
 
-        $validator
-            ->allowEmpty('phone');
-
-        $validator
-            ->allowEmpty('fax');
-
-        $validator
-            ->allowEmpty('street_1');
-
-        $validator
-            ->allowEmpty('street_2');
-
-        $validator
-            ->allowEmpty('city');
-
-        $validator
-            ->allowEmpty('state');
-
-        $validator
-            ->allowEmpty('postal_code');
-
-        $validator
-            ->allowEmpty('country');
+                        if (isset($context['data']['password']) && $value == $context['data']['password']) {
+                            return true;
+                        }
+                        return false;
+                    },
+                    'message' => 'Sorry, password and confirm password does not matched'
+                ]
+            );
 
         return $validator;
     }

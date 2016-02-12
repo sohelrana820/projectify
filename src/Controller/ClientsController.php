@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Utility\Text;
 
 /**
  * Clients Controller
@@ -47,11 +48,16 @@ class ClientsController extends AppController
     {
         $client = $this->Clients->newEntity();
         if ($this->request->is('post')) {
+
+            $this->request->data['uuid'] = Text::uuid();
+            $this->request->data['created_by'] = $this->userID;
+
             $client = $this->Clients->patchEntity($client, $this->request->data);
             if ($this->Clients->save($client)) {
-                $this->Flash->success(__('The client has been saved.'));
+                $this->Flash->success(__('The client has been saved successfully'));
                 return $this->redirect(['action' => 'index']);
-            } else {
+            }
+            else {
                 $this->Flash->error(__('The client could not be saved. Please, try again.'));
             }
         }
