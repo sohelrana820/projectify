@@ -1,0 +1,65 @@
+.select2-container--default .select2-selection--single {
+    height: 36px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #999 !important;;
+    line-height: 35px !important;;
+    font-size: 14px !important;;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ccc !important;;
+    border-radius: 3px !important;;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 5px;
+    right: 2px;
+}
+
+.login-body .select2-container--default .select2-selection--single {
+    border: none !important;
+    border-radius: 3px !important;
+    background: #f7f7f7;
+    margin-top: 16px !important;
+}
+
+.login-body .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: 18px !important;
+}
+
+
+.signup_page{
+    max-width: 520px !important;
+    top: 400px !important;
+}
+
+body.login-page .login-form .form-control
+body.login-page .login-form select
+{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+body.login-page .login-form input {
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+.login_title h4{
+    text-transform: uppercase;
+    text-align: center;
+    color: #777;
+}
+
+select.form-control {
+    margin-top: 15px;
+    border: 0px;
+    background: #f8f8f8;
+}
+
+.error-message{
+    color: #d9534f;
+}

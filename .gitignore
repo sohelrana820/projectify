@@ -1,0 +1,12 @@
+/vendor/*
+/webroot/img/profiles/*
+/webroot/img/galleries/*
+/config/app.php
+/tmp/*
+/logs/*
+/vendor/
+tmp/*
+.DS_STORE
+.idea/*
+.git/*
+/webroot/tickets/*

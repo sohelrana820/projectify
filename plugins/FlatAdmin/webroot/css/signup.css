@@ -1,0 +1,565 @@
+.body{
+    background: #000;
+    background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/stressed_linen.png");
+    font-family: 'Open Sans', sans-serif;
+}
+
+.frontend-logo{
+    height: 40px;
+}
+
+.content-area{
+    margin-bottom: 150px;
+    padding: 50px 40px;
+    text-align: center;
+    color: #FFF;
+}
+
+.contents{
+
+}
+
+.w-box{
+    background: #FFF;
+    padding: 20px;
+    color: #525252;
+    text-align: left;
+}
+
+.form_box{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #fff;
+}
+.form_widget{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #fff;
+}
+
+
+.form_box .form-group{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-align: left;
+
+
+}
+
+.signup-wraper{
+    border: 1px solid #ddd;
+    background: #FFF;
+    padding: 50px 40px;
+    border-radius: 2px;
+    color: #666;
+    text-align: left;
+}
+
+
+
+.signup-wraper .form-control {
+    margin-bottom: 0px !important;
+    height: 40px;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 1px #EEE solid;
+    padding: 0px;
+    background: transparent;
+    box-shadow: none;
+}
+
+
+.form_box label{
+    margin-bottom: 0px !important;
+}
+
+
+.error-message {
+    color: #a94442;
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+.form_box .form-control[type='text']{
+    border-radius: 2px;
+    height: 36px;
+    width: 75%;
+    display: inline;
+}
+
+
+.form_table .form-control[type='text']{
+    border-radius: 0px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    height: 36px;
+    width: 100% !important;
+    display: inline;
+    text-transform: uppercase;
+}
+
+
+.form_table .form-control{
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+
+.form_box .icons{
+    width: 25%;
+    float: right;
+    text-align: right;
+    margin-top: 6px;
+    display: inline;
+}
+
+.form_box{
+    margin-top: 50px;
+    color: #000000;
+}
+
+.header{
+    font-size: 50px;
+}
+
+.title-lg{
+    font-size: 30px;
+}
+
+.title-md{
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.title-sm{
+    font-size: 14px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.get-started, .get-started:hover {
+    background: #90ba4c;
+    color: #FFF;
+    padding: 20px 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.get-started-red, .get-started-red:hover {
+    background: #e25247;
+    color: #FFF;
+    padding: 20px 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.get-started-info {
+    background: #00b0f0;
+    color: #FFF;
+    padding: 15px 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.get-started-info:hover {
+    background: #e25247;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.login_icon{
+    width: 100px;
+    margin: 50px;
+}
+
+.blue{
+    color: #00b0f0 !important;
+}
+
+.orange{
+    color: #e25247 !important;
+}
+
+.margin-top-30{
+    margin-top: 30px;
+}
+
+.margin-bottom-50{
+    margin-bottom: 50px;
+}
+
+.margin-top-80{
+    margin-top: 80px;
+}
+
+.theme-btn{
+    text-transform: uppercase;
+}
+
+.btn-green{
+    background: #00b050;
+    color: #FFF;
+    padding: 10px 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 1px solid #377d8f;
+}
+.btn-green:hover{
+    background: #377d8f;
+    color:#fff;
+}
+
+.btn-red, .btn-red:hover{
+    background: #e25247;
+    color: #FFF;
+    padding: 10px 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.send_me_promotion{
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+.check_icon{
+    background: #90ba4c;
+    padding: 2px 3px 2px 3px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.edit_icon{
+    background: #157efb;
+    padding: 2px 3px 2px 4px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.form_table{
+    text-align: left;
+}
+
+.form_table thead{
+    text-transform: uppercase;
+}
+.form_table > thead > tr > th,
+.form_table > tbody > tr > th,
+.form_table > tfoot > tr > th,
+.form_table > thead > tr > td,
+.form_table > tbody > tr > td,
+.form_table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: none !important;
+}
+
+.form_table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: none !important;
+}
+
+.input.text {
+    display: inline;
+}
+
+.alert {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+}
+
+.top-nav.navbar-default {
+    background: none;
+    border: none;
+    /* border-color: #e7e7e7; */
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover
+{
+    color: #FFF;
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+.alert {
+    border-radius: 0px;
+}
+
+.dropdown-menu{
+    color: #777;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.add_more_section{
+    line-height: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+}
+
+.add_more_section a{
+    background: #52a6d4;
+    padding: 4px 8px 3px 9px;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #222;
+    display: inline;
+}
+
+.add_more_section a:hover{
+    color: #FFF;
+}
+
+.single_row td{
+    height: 80px;
+}
+
+.deleteRow{
+    color: #777;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 800;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.deleteRow:hover{
+    color: #e25247;
+    text-decoration: none;
+}
+
+.single_company_location{
+    float: left;
+    width: 100%;
+    padding:20px;
+}
+
+.single_keyword{
+    margin-bottom: 25px;
+    float: left;
+    width: 100%;
+}
+
+.deleteCompanyRow{
+    font-size: 50px;
+    position: absolute;
+    right: -40px;
+    float: left;
+    cursor: pointer;
+    color: #555;
+}
+
+.deleteKeywordRow{
+    font-size: 20px;
+    position: absolute;
+    right: -40px;
+    float: left;
+    cursor: pointer;
+    color: #555;
+}
+
+.deleteCompanyRow:hover{
+    text-decoration: none;
+    color: #e25247;
+}
+
+.radio, .checkbox{
+    text-transform: uppercase;
+}
+
+.pause-content{
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+
+.select_layout{
+    margin-top: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.select_layout .radio{
+    float: left;
+}
+
+.select_layout label > input{ /* HIDE RADIO */
+    display:none;
+}
+
+.select_layout label > input + div{ /* IMAGE STYLES */
+    cursor:pointer;
+    border: 2px solid transparent;
+}
+
+.select_layout label > input:checked + div
+{
+    border: 2px solid yellowgreen;
+    padding: 1px;
+}
+
+.layout_thumb{
+    width: 100%;
+}
+
+.select_layout .radio{
+    border: 1px solid #EEE;
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+.select_layout .radio label{
+    padding-left: 0px !important;
+}
+
+.thumb{
+
+}
+
+.thumb h2{
+    margin: 0px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 12px;
+
+}
+
+.preview_link{
+    margin-top: 10px;
+    display: block;
+}
+
+.remove-padding{
+    padding: 0px !important;
+}
+
+.select_layout label,
+.select_layout .radio{
+    width: 100%;
+}
+
+.layout_thumb{
+    width: 100%;
+}
+
+.landing-page1{
+    background-image: url("../img/backgroud-image/landing-page1.jpg") !important;
+    display: block;
+}
+.landing-page2{
+    background-image: url("../img/backgroud-image/landing-page2.jpg") !important;
+    display: block;
+}
+.landing-page3{
+    background-image: url("../img/backgroud-image/landing-page3.jpg") !important;
+    display: block;
+}
+.landing-page4{
+    background-image: url("../img/backgroud-image/landing-page4.jpg") !important;
+    display: block;
+}
+.landing-page5{
+    background-image: url("../img/backgroud-image/landing-page5.jpg") !important;
+    display: block;
+}
+.landing-page6{
+    background-image: url("../img/backgroud-image/landing-page6.jpg") !important;
+    display: block;
+}
+.landing-page7{
+    background-image: url("../img/backgroud-image/landing-page7.jpg") !important;
+    display: block;
+}
+.landing-page8{
+    background-image: url("../img/backgroud-image/landing-page8.jpg") !important;
+    display: block;
+}
+.landing-page9{
+    background-image: url("../img/backgroud-image/landing-page9.jpg") !important;
+    display: block;
+}
+.landing-page10{
+    background-image: url("../img/backgroud-image/landing-page10.jpg") !important;
+    display: block;
+}
+
+.text-underline{
+    text-decoration: underline;
+}
+
+.choice-box{
+    display: inline-block;
+    margin: 5px;
+    padding: 20px 0px;
+    width:280px;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    border: 2px solid #ddd;
+}
+
+.title {
+
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-size: 30px;
+    text-shadow: 1px 1px #888;
+}
+
+.choice-box h2 , h3{
+
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-weight: 300;
+}
+
+.choice-box:hover{
+    background-color: #ddd;
+}
+.choice-box>.choice-logo{
+    display: block;
+    height: 110px;
+    width: 100%;
+}
+.choice-box>.choice-text{
+    display: block;
+    margin: 10px;
+    width: 100%;
+    color: #0070c6;
+}
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    /*min-height: 100px;*/
+    height: 100px;
+
+}
+.list-2{
+    text-align: left !important;
+}
+.deep-blue{
+    color: #0070c6;
+}
+IMG.main-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    /*min-height: 100px;*/
+
+}
