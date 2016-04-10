@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group label-floating is-empty">
                                 <div class="input-group">
                                     <label class="control-label">Date of birth</label>
@@ -42,21 +42,19 @@
                                 <?php echo $this->Form->error('profile.birthday') ?>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="form-group label-floating is-empty">
-                                <h4>Gender</h4>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="profile[gender]" value="1" checked="">
-                                        <span class="circle"></span><span class="check"></span>
-                                        Always
+                        <div class="col-lg-2">
+                            <div class="form-group is-empty">
+                                <div class="radio3 radio-check radio-success radio-inline">
+                                    <input type="radio" id="radio5" name="profile[gender]" id="optionsRadios2">
+                                    <label for="radio5">
+                                        Male
                                     </label>
                                 </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="profile[gender]" value="2">
-                                        <span class="circle"></span><span class="check"></span>
-                                        Only when plugged in
+                                <br/>
+                                <div class="radio3 radio-check radio-success radio-inline">
+                                    <input type="radio" id="radio6" name="profile[gender]" id="optionsRadios2">
+                                    <label for="radio6">
+                                        Female
                                     </label>
                                 </div>
                                 <?php echo $this->Form->error('profile.gender') ?>
@@ -69,21 +67,18 @@
                             <div class="form-group label-floating is-empty">
                                 <label class="control-label">Username (email address)</label>
                                 <?php echo $this->Form->input('username', ['type' => 'text', 'class' => 'form-control', 'label' => false, 'required' => false]); ?>
-                                <p class="help-text">Hints: Email Address <span class="red">(required)</span></p>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group label-floating is-empty">
                                 <label class="control-label">Phone number</label>
                                 <?php echo $this->Form->input('profile.phone', ['type' => 'text', 'class' => 'form-control', 'label' => false, 'required' => false]); ?>
-                                <p class="help-text">Hints: Phone Number <span class="red">(required)</span></p>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group label-floating is-empty">
                                 <label class="control-label">Fax</label>
                                 <?php echo $this->Form->input('profile.fax', ['type' => 'text', 'class' => 'form-control', 'label' => false, 'required' => false]); ?>
-                                <p class="help-text">Hints: Fax </p>
                             </div>
                         </div>
                     </div>
@@ -93,7 +88,6 @@
                             <div class="form-group label-floating is-empty">
                                 <label class="control-label">Street 1</label>
                                 <?php echo $this->Form->input('profile.street_1', ['type' => 'text', 'class' => 'form-control', 'label' => false, 'required' => false]); ?>
-                                <p class="help-text">Hints: Address <span class="red">(required)</span></p>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -116,6 +110,7 @@
                                 <select id="country" name="profile[country]" class="form-control select2-form-control select2">
                                     <option value="">Choose country</option>
                                 </select>
+                                <?php echo $this->Form->error('profile.country') ?>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -123,6 +118,7 @@
                                 <select name="profile[state]" id="state" class="form-control select2-form-control select2">
                                     <option value="" hidden>Choose state</option>
                                 </select>
+                                <?php echo $this->Form->error('profile.state') ?>
                             </div>
                         </div>
                         <div class="col-lg-4">

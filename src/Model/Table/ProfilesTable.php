@@ -68,17 +68,37 @@ class ProfilesTable extends Table
             ->requirePresence('phone', 'create')
             ->notEmpty('phone', 'Phone must be required!');
 
-        /*$validator
+        $validator
+            ->requirePresence('gender', 'create')
+            ->notEmpty('gender', 'Phone must be required!');
+
+        $validator
             ->requirePresence('birthday', 'create')
             ->notEmpty('birthday', 'Birthday must be required!')
             ->add('birthday', 'birthday', [
                 'rule' => ['date' , 'mdy'],
                 'message' => 'Invalid date format',
-            ]);*/
+            ]);
 
         $validator
             ->requirePresence('street_1', 'create')
             ->notEmpty('street_1', 'Street Address must be required!');
+
+        $validator
+            ->requirePresence('city', 'create')
+            ->notEmpty('city', 'City must be required!');
+
+        $validator
+            ->requirePresence('country', 'create')
+            ->notEmpty('city', 'Country must be required!');
+
+        $validator
+            ->requirePresence('state', 'create')
+            ->notEmpty('state', 'State must be required!');
+
+        $validator
+            ->requirePresence('postal_code', 'create')
+            ->notEmpty('postal_code', 'Postal code must be required!');
 
 
 
