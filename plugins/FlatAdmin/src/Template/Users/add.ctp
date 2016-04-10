@@ -19,6 +19,12 @@
                 <div class="card-body">
                     <?php echo $this->Form->create($user, array('controller' => 'users', 'action' => 'add')); ?>
 
+                    <div class="form-group label-floating is-empty">
+                        <label for="i5" class="control-label">First name</label>
+                        <input type="text" name="profile[first_name]" class="form-control" placeholder="First name" maxlength="32" id="profile-first-name">
+                        <span class="help-block">This is a hint as a <code>span.help-block.hint</code></span>
+                        <span class="material-input"></span></div>
+
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
